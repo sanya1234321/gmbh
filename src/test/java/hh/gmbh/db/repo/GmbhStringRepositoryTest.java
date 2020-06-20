@@ -42,12 +42,13 @@ public class GmbhStringRepositoryTest {
         String testString2Value = "test2";
 
         gmbhStringRepository.save(TEST_GMBH_STRING);
+        // same string stores 2 times
         gmbhStringRepository.save(GmbhStringEntity
                                     .builder()
                                     .value(TEST_GMBH_STRING.getValue())
                                     .length(TEST_GMBH_STRING.getLength())
                                     .build());
-
+        //different string
         gmbhStringRepository.save(GmbhStringEntity
                                     .builder()
                                     .value(testString2Value)
