@@ -1,6 +1,7 @@
 package hh.gmbh.api;
 
-import hh.gmbh.db.GmbhStringEntity;
+import hh.gmbh.db.entities.CountValueProjection;
+import hh.gmbh.db.entities.GmbhStringEntity;
 import hh.gmbh.db.repo.GmbhStringRepository;
 import hh.gmbh.model.GmbhStringRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 import static org.springframework.http.ResponseEntity.ok;
 
@@ -36,12 +38,12 @@ public class StringsController {
     }
 
     @GetMapping("/count")
-    public ResponseEntity get() {
+    public ResponseEntity<List<CountValueProjection>> getCount() {
         return ok(gmbhStringRepository.countStrings());
     }
 
     @GetMapping("/avg")
-    public ResponseEntity getAverageLength() {
+    public ResponseEntity<Integer> getAverageLength() {
         return ok(gmbhStringRepository.getAverageLength());
     }
 
