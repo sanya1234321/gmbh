@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.5.8.RELEASE'
+        springBootVersion = '2.1.6.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -25,8 +25,11 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.projectlombok:lombok:1.16.18')
     compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.8.0'
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('io.rest-assured:rest-assured')
 }

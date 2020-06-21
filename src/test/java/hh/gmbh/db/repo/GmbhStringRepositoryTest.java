@@ -23,7 +23,7 @@ public class GmbhStringRepositoryTest {
     @Test
     public void save() {
         GmbhStringEntity saved = gmbhStringRepository.save(TEST_GMBH_STRING);
-        GmbhStringEntity found = gmbhStringRepository.findOne(saved.getId());
+        GmbhStringEntity found = gmbhStringRepository.findById(saved.getId()).get();
 
         assertThat(found.getValue()).isEqualTo(saved.getValue());
         assertThat(found.getLength()).isEqualTo(saved.getLength());
